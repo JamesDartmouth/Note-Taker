@@ -1,13 +1,14 @@
 const path = require("path");
-// const app = require('express').Router();
+const htmlRoute = require('express').Router();
 
-module.exports = app => {
+
 // GET 'notes', returns notes.html file.
-  app.get("/notes", (req, res) => {
+htmlRoute.get("/notes", (req, res) => {
     res.sendFile(path.join(__dirname, "../public/notes.html"));
   });
 // GET '*', returns index.html file.
-  app.get("*", (req, res) => {
+htmlRoute.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "../public/index.html"));
   });
-};
+
+  module.exports = htmlRoute;
